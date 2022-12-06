@@ -1,0 +1,162 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "V9M1lb",
+    "name": "OpcoesDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "zqymPd"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "n2ajn1"
+          },
+          "property": "user.choice"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "4NT1yq"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "invalidPrompt": "",
+          "prompt": "${ChoiceInput_Prompt_4NT1yq()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "style": "heroCard",
+          "choices": [
+            "Comprar",
+            "Acompanhar pedido"
+          ],
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "property": "user.choice",
+          "defaultValue": "=this.value",
+          "validations": []
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "jkDMPw"
+          },
+          "condition": "user.choice",
+          "cases": [
+            {
+              "value": "Comprar",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "lDSLPe"
+                  },
+                  "property": "user.item"
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "HrKF22",
+                    "comment": ""
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "prompt": "${ChoiceInput_Prompt_HrKF22()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "style": "heroCard",
+                  "choices": [
+                    "Monitor",
+                    "Iphone",
+                    "Samsung",
+                    "Pc Gamer"
+                  ],
+                  "property": "user.item",
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true,
+                    "recognizeNumbers": true
+                  },
+                  "defaultValue": "=this.value"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "0uJF7t"
+                  },
+                  "activity": "${SendActivity_0uJF7t()}"
+                }
+              ]
+            },
+            {
+              "value": "Acompanhar pedido",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "pBzvmL"
+                  },
+                  "condition": "=user.item!=null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "JUadet"
+                      },
+                      "activity": "${SendActivity_JUadet()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "cSK6sk"
+                      },
+                      "activity": "${SendActivity_cSK6sk()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "H96Muh"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "OpcoesDialog.lg",
+  "recognizer": "OpcoesDialog.lu.qna",
+  "id": "OpcoesDialog"
+}

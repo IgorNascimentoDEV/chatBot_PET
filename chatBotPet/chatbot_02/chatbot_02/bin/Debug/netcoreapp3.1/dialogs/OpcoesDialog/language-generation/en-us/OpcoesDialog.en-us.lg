@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_4NT1yq()
+[Activity
+    Text = ${ChoiceInput_Prompt_4NT1yq_text()}
+]
+
+# ChoiceInput_Prompt_4NT1yq_text()
+- Qual Opção você deseja escolha uma opção
+# ChoiceInput_Prompt_HrKF22()
+[Activity
+    Text = ${ChoiceInput_Prompt_HrKF22_text()}
+]
+
+# ChoiceInput_Prompt_HrKF22_text()
+- Selecione um produto:
+# SendActivity_0uJF7t()
+[Activity
+    Text = ${SendActivity_0uJF7t_text()}
+]
+
+# SendActivity_0uJF7t_text()
+- Ok, seu ${user.item} estár a caminho..
+# SendActivity_JUadet()
+[Activity
+    Text = ${SendActivity_JUadet_text()}
+    Attachments = ${SendActivity_JUadet_attachment_ao0uAt()}
+]
+
+# SendActivity_JUadet_text()
+- Ok, seu ${user.item} estár a caminho..
+# SendActivity_cSK6sk()
+[Activity
+    Text = ${SendActivity_cSK6sk_text()}
+]
+
+# SendActivity_cSK6sk_text()
+- Você não fez nehum pedido ainda
+# SendActivity_JUadet_attachment_ao0uAt()
+[HeroCard
+  title =Produto
+  subtitle =Seu Produto
+  text =O texto do seu produto foi tanto..
+  images =https://m.media-amazon.com/images/I/71RCkB-IEEL._AC_SL1000_.jpg
+]
